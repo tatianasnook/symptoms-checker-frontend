@@ -3,12 +3,14 @@
 // import viteLogo from '/vite.svg'
 import './App.css'
 import HealthcareLocator from './components/HealthcareLocator'
+import SymptomsChecker from './components/SymptomsChecker'
 
 function App() {
 
   return (
     <>
      <h1>Hello World!</h1>
+     <SymptomsChecker />
      <HealthcareLocator />
     </>
   )
