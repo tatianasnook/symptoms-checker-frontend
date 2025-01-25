@@ -1,11 +1,12 @@
 import axios from 'axios';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 const SymptomsChecker = () => {
   const [symptoms, setSymptoms] = useState("");
   const [conditions, setConditions] = useState<string | null>(null);
   const [selectedCondition, setSelectedCondition] = useState("");
   const [conditionDetails, setConditionDetails] = useState<string | null>(null);
+  const [history, setHistory] = useState<{ _id: string; text: string }[]>([]);
 
   const checkSymptoms = async () => {
     try {
@@ -13,25 +14,48 @@ const SymptomsChecker = () => {
             symptoms,
         });
         setConditions(response.data.conditions);
+        await saveSearchHistory(symptoms);
     } catch (error) {
         console.error("Error fetching conditions:", error);
     }
 };
 
-const getConditionInfo = async () => {
+  const getConditionInfo = async () => {
+      try {
+          const response = await axios.post("http://localhost:4000/api/get-condition-info", {
+              condition: selectedCondition,
+          });
+          setConditionDetails(response.data.details);
+      } catch (error) {
+          console.error("Error fetching condition details:", error);
+      }
+  };
+
+  const saveSearchHistory = async (text: string) => {
     try {
-        const response = await axios.post("http://localhost:4000/api/get-condition-info", {
-            condition: selectedCondition,
-        });
-        setConditionDetails(response.data.details);
+      await axios.post('http://localhost:4000/saveRecord', { text });
+      fetchHistory(); // Refresh search history after saving new entry
     } catch (error) {
-        console.error("Error fetching condition details:", error);
+      console.error('Error saving search history:', error);
     }
-};
+  };
+
+  const fetchHistory = async () => {
+      try {
+        const response = await axios.get('http://localhost:4000/getRecords');
+        setHistory(response.data);
+      } catch (error) {
+        console.error('Error fetching search history:', error);
+      }
+    };
+
+  useEffect(() => {
+    fetchHistory();
+  }, []);
 
   return (
     <div style={{ padding: "20px" }}>
-      <h1>Symptom Checker</h1>
+      <h2>Symptom Checker</h2>
 
       <div>
         <input
@@ -64,6 +88,19 @@ const getConditionInfo = async () => {
           <p>{conditionDetails}</p>
         </div>
       )}
+
+      <div>
+        <h2>Search History</h2>
+        {history.length > 0 ? (
+          <ul>
+            {history.map((record) => (
+              <li key={record._id}>{record.text}</li>
+            ))}
+          </ul>
+        ) : (
+          <p>No search history available.</p>
+        )}
+      </div>
     </div>
   )
 }

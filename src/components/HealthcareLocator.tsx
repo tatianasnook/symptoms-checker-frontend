@@ -26,6 +26,7 @@ const HealthcareLocator = () => {
       });
 
       setFacilities(response.data);
+      console.log(response.data)
 
       // Initialize Google Map
       const firstLocation = response.data[0].geometry.location;
@@ -52,7 +53,7 @@ const HealthcareLocator = () => {
 
   return (
     <div>
-      <h1>Find Nearby Healthcare Facilities</h1>
+      <h3>Find Nearby Healthcare Facilities</h3>
       <input
         type="text"
         placeholder="Enter ZIP code"
