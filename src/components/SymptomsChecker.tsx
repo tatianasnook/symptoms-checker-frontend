@@ -9,6 +9,8 @@ interface SearchRecord {
   date: string;
 }
 
+const backendURL = "https://symptoscan-backend.onrender.com";
+
 const SymptomsChecker = () => {
   const [symptoms, setSymptoms] = useState("");
   const [conditions, setConditions] = useState<string | null>(null);
@@ -19,7 +21,7 @@ const SymptomsChecker = () => {
 
   const checkSymptoms = async () => {
     try {
-        const response = await axios.post("https://symptoscan.onrender.com/api/check-symptoms", {
+        const response = await axios.post(`${backendURL}/api/check-symptoms`, {
             symptoms,
         });
         setConditions(response.data.conditions);
@@ -31,7 +33,7 @@ const SymptomsChecker = () => {
 
   const getConditionInfo = async () => {
       try {
-          const response = await axios.post("https://symptoscan.onrender.com/api/get-condition-info", {
+          const response = await axios.post(`${backendURL}/api/get-condition-info`, {
               condition: selectedCondition,
           });
           setConditionDetails(response.data.details);
@@ -43,7 +45,7 @@ const SymptomsChecker = () => {
   const saveSearchHistory = async (symptoms: string, conditions: string) => {
     try {
       const date = new Date().toISOString().split('T')[0];
-      await axios.post('https://symptoscan.onrender.com/saveRecord', { symptoms, conditions, date });
+      await axios.post(`${backendURL}/saveRecord`, { symptoms, conditions, date });
       fetchHistory(); // Refresh search history after saving new entry
     } catch (error) {
       console.error('Error saving search history:', error);
@@ -52,7 +54,7 @@ const SymptomsChecker = () => {
 
   const fetchHistory = async () => {
       try {
-        const response = await axios.get('https://symptoscan.onrender.com/getRecords');
+        const response = await axios.get(`${backendURL}/getRecords`);
         setHistory(response.data);
       } catch (error) {
         console.error('Error fetching search history:', error);
@@ -65,7 +67,7 @@ const SymptomsChecker = () => {
 
   const deleteRecord = async (id: string) => {
     try {
-        await axios.delete(`https://symptoscan.onrender.com/deleteRecord/${id}`);
+        await axios.delete(`${backendURL}/deleteRecord/${id}`);
         setHistory(history.filter(record => record._id !== id)); // Remove deleted record from UI
     } catch (error) {
         console.error('Error deleting record:', error);
