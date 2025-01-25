@@ -2,10 +2,13 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { loadGoogleMapsScript } from '../utils/loadGoogleMaps';
 
+/// <reference types="google.maps" />
 
 const HealthcareLocator = () => {
   const [zipCode, setZipCode] = useState('');
   const [facilities, setFacilities] = useState<any[]>([]);
+  
+  // @ts-ignore
   const [map, setMap] = useState<google.maps.Map | null>(null);
 
   useEffect(() => {
