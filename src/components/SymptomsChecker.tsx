@@ -2,12 +2,19 @@ import axios from 'axios';
 import { useState, useEffect } from 'react';
 import React from 'react';
 
+interface SearchRecord {
+  _id: string;
+  symptoms: string;
+  conditions: string;
+  date: string;
+}
+
 const SymptomsChecker = () => {
   const [symptoms, setSymptoms] = useState("");
   const [conditions, setConditions] = useState<string | null>(null);
   const [selectedCondition, setSelectedCondition] = useState("");
   const [conditionDetails, setConditionDetails] = useState<string | null>(null);
-  const [history, setHistory] = useState<{ _id: string; text: string }[]>([]);
+  const [history, setHistory] = useState<SearchRecord[]>([]);
   const [showHistory, setShowHistory] = useState(false);
 
   const checkSymptoms = async () => {
