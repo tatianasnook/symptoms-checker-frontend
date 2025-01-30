@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import { loadGoogleMapsScript } from '../utils/loadGoogleMaps';
+import { loadGoogleMapsScript } from '../api/googleMapService';
 
 /// <reference types="google.maps" />
 

@@ -1,4 +1,3 @@
-// load the Google Maps JavaScript API dynamically, create a helper function
 
 export const loadGoogleMapsScript = (callback: () => void) => {
   const existingScript = document.getElementById('google-maps-script');
