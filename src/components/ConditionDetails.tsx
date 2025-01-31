@@ -7,7 +7,7 @@ interface ConditionDetailsProps {
 const ConditionDetails = ({ details }: ConditionDetailsProps) => {
   return details ? (
     <div>
-      <h2>Condition Details:</h2>
+      <h3>Condition Details:</h3>
       <p>
         {details.split(/(Causes:|Symptoms:|Treatments:|Prevention methods:)/).map((part, index) => (
           <React.Fragment key={index}>

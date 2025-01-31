@@ -5,6 +5,7 @@ import ConditionsList from './ConditionsList';
 import ConditionDetails from './ConditionDetails';
 import SearchHistory from './SearchHistory';
 import { SearchRecord } from "../types/types";
+import ConditionInput from './ConditionInput';
 
 const SymptomsChecker = () => {
   const [conditions, setConditions] = useState<string | null>(null);
@@ -48,11 +49,12 @@ const SymptomsChecker = () => {
 
   return (
     <div style={{ padding: "20px" }}>
-      <h2>Symptoms Checker</h2>
+
       <SymptomsInput onCheckSymptoms={handleCheckSymptoms} />
 
-      <ConditionsList 
-        conditions={conditions}  
+      <ConditionsList conditions={conditions} />
+
+      <ConditionInput
         onSelectCondition={setSelectedCondition} 
         onGetConditionInfo={handleGetConditionInfo} 
       />
