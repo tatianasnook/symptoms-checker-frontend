@@ -1,14 +1,13 @@
 interface ConditionsListProps {
   conditions: string | null;
-  selectedCondition: string;
   onSelectCondition: (condition: string) => void;
   onGetConditionInfo: () => void;
 }
 
-const ConditionsList = ({ conditions, selectedCondition, onSelectCondition, onGetConditionInfo }: ConditionsListProps) => {
+const ConditionsList = ({ conditions, onSelectCondition, onGetConditionInfo }: ConditionsListProps) => {
   return (
     <div>
-      <h2>Learn more about certain condition</h2>
+      <h2>Learn more about condition</h2>
 
       {/* Show conditions if available */}
       {conditions && conditions.trim() !== "" ? (

@@ -4,7 +4,7 @@ import SymptomsInput from './SymptomsInput';
 import ConditionsList from './ConditionsList';
 import ConditionDetails from './ConditionDetails';
 import SearchHistory from './SearchHistory';
-import { SearchRecord } from "../types";
+import { SearchRecord } from "../types/types";
 
 const SymptomsChecker = () => {
   const [conditions, setConditions] = useState<string | null>(null);
@@ -52,8 +52,7 @@ const SymptomsChecker = () => {
       <SymptomsInput onCheckSymptoms={handleCheckSymptoms} />
 
       <ConditionsList 
-        conditions={conditions} 
-        selectedCondition={selectedCondition} 
+        conditions={conditions}  
         onSelectCondition={setSelectedCondition} 
         onGetConditionInfo={handleGetConditionInfo} 
       />

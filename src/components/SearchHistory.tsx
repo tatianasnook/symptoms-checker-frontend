@@ -1,10 +1,4 @@
-
-export interface SearchRecord {
-  _id: string;
-  symptoms: string;
-  conditions: string;
-  date: string;
-}
+import { SearchRecord } from "../types/types";
 
 interface SearchHistoryProps {
   history: SearchRecord[];
