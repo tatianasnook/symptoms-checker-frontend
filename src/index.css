@@ -31,3 +31,12 @@ input {
   color: white;
   font-weight: 600;
 }
+
+.blue-btn:hover {
+  background-color: #0c82c1;
+}
+
+.blue-btn:active {
+  background-color: white;
+  color:#0c82c1;
+}

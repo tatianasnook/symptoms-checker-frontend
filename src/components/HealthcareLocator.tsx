@@ -67,7 +67,7 @@ const HealthcareLocator = () => {
         Search
       </button>
 
-      <div id="map"></div>
+      <div id="map" style={{ display: facilities.length > 0 ? 'block' : 'none' }}></div>
 
       <ul>
         {facilities.map((place, index) => (

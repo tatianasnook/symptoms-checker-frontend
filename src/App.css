@@ -11,11 +11,6 @@ h1 {
   padding-left: 10px;
 }
 
-/* SymptomsChecker */
-.search-history {
-  padding: 30px;
-}
-
 /* SymptomsInput */
 h3 {
   padding: 30px 0 10px 0;
@@ -47,3 +42,36 @@ span{
   margin: 10px 0;
 }
 
+/* SearchHistory */
+.search-history {
+  margin-top: 30px;
+}
+
+.search-btn{
+  border: none;
+  background-color: transparent;
+  text-decoration: underline;
+  color:#0c98e3;
+  cursor: pointer;
+}
+
+.search-history ul {
+  line-height: 20px;
+  text-align: justify;
+  background: rgba(255, 255, 255, 0.6);
+  padding: 5px;
+  border-radius: 10px;
+}
+
+.search-history li {
+  list-style: none;
+  margin-top: 10px;
+}
+
+.delete-btn {
+  background-color: #0c98e3;
+  padding: 3px 6px;
+  border: none;
+  color: white;
+  border-radius: 3px;
+}
