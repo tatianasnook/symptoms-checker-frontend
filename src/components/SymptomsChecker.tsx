@@ -48,8 +48,8 @@ const SymptomsChecker = () => {
   };
 
   return (
-    <div style={{ padding: "20px" }}>
-
+    <main>
+      
       <SymptomsInput onCheckSymptoms={handleCheckSymptoms} />
 
       <ConditionsList conditions={conditions} />
@@ -61,7 +61,8 @@ const SymptomsChecker = () => {
 
       <ConditionDetails details={conditionDetails} />
       
-      <div style={{paddingTop: "40px"}}>
+      
+      <div className='search-history'>
         <button onClick={() => setShowHistory(!showHistory)}>
           {showHistory ? "Hide Previous Searches" : "Previous Search History"}
         </button>
@@ -69,7 +70,7 @@ const SymptomsChecker = () => {
         {showHistory && <SearchHistory history={history} onDeleteRecord={handleDeleteRecord} onRefreshHistory={() => fetchHistory().then(setHistory)} />}
       </div>
       
-    </div>
+    </main>
   );
 };
 

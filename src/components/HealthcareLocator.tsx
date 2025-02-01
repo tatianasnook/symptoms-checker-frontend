@@ -55,17 +55,19 @@ const HealthcareLocator = () => {
   };
 
   return (
-    <div>
+    <div className='healthcare-locator'>
       <h3>Find Nearby Healthcare Facilities</h3>
       <input
         type="text"
-        placeholder="Enter ZIP code"
+        placeholder="Enter ZIP code or e.g. Seattle, WA"
         value={zipCode}
         onChange={(e) => setZipCode(e.target.value)}
       />
-      <button onClick={getHealthcareFacilities}>Search</button>
+      <button onClick={getHealthcareFacilities} className='blue-btn'>
+        Search
+      </button>
 
-      <div id="map" style={{ height: '500px', width: '100%' }}></div>
+      <div id="map"></div>
 
       <ul>
         {facilities.map((place, index) => (

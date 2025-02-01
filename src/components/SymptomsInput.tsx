@@ -9,14 +9,15 @@ const SymptomsInput = ({ onCheckSymptoms }: SymptomsInputProps) => {
 
   return (
     <div>
-      <h2>Enter your symptoms to check for possible conditions</h2>
+      <h3>Enter a list of your symptoms to check for possible conditions:</h3>
       <input
         type="text"
-        placeholder="Enter your symptoms"
         value={symptoms}
         onChange={(e) => setSymptoms(e.target.value)}
       />
-      <button onClick={() => onCheckSymptoms(symptoms)}>Analyze Symptoms</button>
+      <button onClick={() => onCheckSymptoms(symptoms)} className='blue-btn'>
+        Analyze Symptoms
+      </button>
     </div>
   );
 };

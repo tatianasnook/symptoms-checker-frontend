@@ -16,10 +16,10 @@ const ConditionsList = ({ conditions }: ConditionsListProps) => {
   const formattedConditions = cleanConditions(conditions);
 
   return (
-    <div>
+    <div className="conditions-list">
       {/* Show the heading only if formattedConditions is not empty */}
       {formattedConditions && formattedConditions !== "" && (
-        <h3>Here is a list of possible conditions based on your symptoms:</h3>
+        <h4>Here is a list of possible conditions based on your symptoms:</h4>
       )}
 
       {formattedConditions && formattedConditions !== "" ? (
