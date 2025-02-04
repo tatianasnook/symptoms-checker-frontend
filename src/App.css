@@ -13,20 +13,20 @@ h1 {
 
 /* SymptomsInput */
 h3 {
-  padding: 30px 0 10px 0;
+  padding: 50px 0 15px 0;
 }
 
 /* ConditionsList */
-
 h4 {
   padding: 30px 0 10px 0;
+  text-align: center; 
 }
 
 p {
   line-height: 20px;
   text-align: justify;
   background: rgba(255, 255, 255, 0.6);
-  padding: 5px;
+  padding: 16px;
   border-radius: 10px;
 }
 
@@ -36,12 +36,19 @@ span{
 }
 
 /* HealthcareLocator */
+.zip-code-input {
+  font-size: 15px;
+}
+
 #map {
   height: 500px;
   width: 100%;
-  margin: 10px 0;
+  margin: 15px 0;
 }
 
+.healthcare-locator li {
+  list-style: none;
+}
 /* SearchHistory */
 .search-history {
   margin-top: 30px;
@@ -53,6 +60,7 @@ span{
   text-decoration: underline;
   color:#0c98e3;
   cursor: pointer;
+  font-size: 16px;
 }
 
 .search-history ul {

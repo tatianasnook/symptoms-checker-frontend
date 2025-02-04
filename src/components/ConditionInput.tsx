@@ -5,7 +5,7 @@ interface ConditionInputProps {
 
 const ConditionInput = ({ onSelectCondition, onGetConditionInfo }: ConditionInputProps) => {
   return (
-    <div>
+    <div className="condition-input">
       <h3>Learn more about a condition:</h3>
       <input
         type="text"

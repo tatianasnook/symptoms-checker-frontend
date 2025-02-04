@@ -21,6 +21,10 @@ const SymptomsChecker = () => {
   };
 
   const handleGetConditionInfo = async () => {
+    if(!selectedCondition.trim()) {
+      alert("Please enter a condition before getting details.");
+      return;
+    }
     try {
       let details = await getConditionInfo(selectedCondition);
       if (details.startsWith("Sure!")) {

@@ -8,7 +8,7 @@ const ConditionsList = ({ conditions }: ConditionsListProps) => {
     if (!conditions) return null;
 
     // Remove common introductory phrases from OpenAI responses
-    const cleaned = conditions.replace(/^(Sure!|Here are some possible conditions that could cause|Here is a list of possible conditions based on the symptoms of).*?:\s*/i, "");
+    const cleaned = conditions.replace(/^(Certainly! Here are some possible conditions based on the symptoms provided:|Sure!|Here are some possible conditions that could cause|Here is a list of possible conditions based on the symptoms of).*?:\s*/i, "");
 
     return cleaned.trim();
   };

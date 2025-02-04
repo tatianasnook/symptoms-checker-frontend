@@ -19,7 +19,7 @@ const HealthcareLocator = () => {
 
   const getHealthcareFacilities = async () => {
     if (!zipCode) {
-      alert('Please enter a ZIP code.');
+      alert('Please enter a ZIP code or a city and state, e.g., Seattle, WA.');
       return;
     }
 
@@ -62,6 +62,7 @@ const HealthcareLocator = () => {
         placeholder="Enter ZIP code or e.g. Seattle, WA"
         value={zipCode}
         onChange={(e) => setZipCode(e.target.value)}
+        className='zip-code-input'
       />
       <button onClick={getHealthcareFacilities} className='blue-btn'>
         Search

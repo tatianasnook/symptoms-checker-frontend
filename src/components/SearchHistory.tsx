@@ -1,5 +1,4 @@
 
-
 import { useState } from "react";
 import { SearchRecord } from "../types/types";
 
