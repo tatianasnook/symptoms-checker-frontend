@@ -76,7 +76,7 @@ const HealthcareLocator = () => {
       <ul>
         {facilities.map((place, index) => (
           <li key={index}>
-            {place.name} - {place.vicinity} - rating: {place.rating}
+            {place.name} - {place.vicinity} - rating: <span>{place.rating}</span>
           </li>
         ))}
       </ul>

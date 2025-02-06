@@ -27,7 +27,7 @@ const SearchHistory = ({ history, onDeleteRecord, onRefreshHistory }: SearchHist
                 <li key={record._id}>
                   <strong>Symptoms:</strong> {record.symptoms} <br />
                   <strong>Conditions:</strong> {record.conditions} <br />
-                  <strong>Date:</strong> {record.date} <br />
+                  <strong>Date:</strong> {record.date.slice(0,10)} <br />
                   <button className="delete-btn" onClick={() => onDeleteRecord(record._id)}>Delete</button>
                 </li>
               ))}
