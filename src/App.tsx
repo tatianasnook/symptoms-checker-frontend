@@ -37,6 +37,13 @@ function App() {
         onDeleteRecord={handleDeleteRecord}
         onRefreshHistory={() => fetchHistory().then(setHistory)}
       />
+
+      <footer>
+        <p>
+          <strong>Disclaimer:</strong> This SymptoScan app is intended for informational purposes only and should not be considered as medical advice. It is not a substitute for professional healthcare consultation, diagnosis, or treatment. Always seek the advice of your physician or other qualified health provider with any questions you may have regarding a medical condition. Never disregard professional medical advice or delay in seeking it because of something you have read on this app.
+        </p>
+        <p>&copy; 2025 Tatiana Snook. All rights reserved.</p>
+      </footer>
     </div>
   )
 }

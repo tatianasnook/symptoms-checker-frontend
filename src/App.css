@@ -61,6 +61,7 @@ span{
   color:#0c98e3;
   cursor: pointer;
   font-size: 16px;
+  font-weight: 500;
 }
 
 .search-history ul {
@@ -82,4 +83,10 @@ span{
   border: none;
   color: white;
   border-radius: 3px;
+}
+
+footer {
+  width: 100%;
+  border: 1px solid red;
+  
 }

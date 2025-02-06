@@ -18,21 +18,23 @@ const HealthcareLocator = () => {
 }, []);
 
   const getHealthcareFacilities = async () => {
-    if (!zipCode) {
-      alert('Please enter a ZIP code or a city and state, e.g., Seattle, WA.');
-      return;
-    }
+  if (!zipCode) {
+    alert('Please enter a ZIP code or a city and state, e.g., Seattle, WA.');
+    return;
+  }
 
-    try {
-      const response = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/nearby-healthcare`, {
-        params: { zipCode },
-      });
+  try {
+    const response = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/nearby-healthcare`, {
+      params: { zipCode },
+    });
 
-      setFacilities(response.data);
-      console.log(response.data)
+    const filteredFacilities = response.data.filter((place: any) => place.business_status === 'OPERATIONAL' && place.rating > 0);
 
-      // Initialize Google Map
-      const firstLocation = response.data[0].geometry.location;
+    setFacilities(filteredFacilities);
+
+    // Initialize Google Map
+    const firstLocation = filteredFacilities[0]?.geometry?.location;
+    if (firstLocation) {
       const mapInstance = new google.maps.Map(document.getElementById('map') as HTMLElement, {
         zoom: 12,
         center: { lat: firstLocation.lat, lng: firstLocation.lng },
@@ -41,17 +43,18 @@ const HealthcareLocator = () => {
       setMap(mapInstance);
 
       // Add markers
-      response.data.forEach((place: any) => {
+      filteredFacilities.forEach((place: any) => {
         new google.maps.Marker({
           position: place.geometry.location,
           map: mapInstance,
           title: place.name,
         });
       });
-    } catch (error) {
-      console.error('Error fetching healthcare facilities:', error);
-      alert('Failed to fetch healthcare facilities.');
     }
+  } catch (error) {
+    console.error('Error fetching healthcare facilities:', error);
+    alert('Failed to fetch healthcare facilities.');
+  }
   };
 
   return (
@@ -73,7 +76,7 @@ const HealthcareLocator = () => {
       <ul>
         {facilities.map((place, index) => (
           <li key={index}>
-            {place.name} - {place.vicinity}
+            {place.name} - {place.vicinity} - rating: {place.rating}
           </li>
         ))}
       </ul>
