@@ -12,7 +12,7 @@ const ConditionInput = ({ onSelectCondition, onGetConditionInfo }: ConditionInpu
         onChange={(e) => onSelectCondition(e.target.value)}
       />
       <button onClick={onGetConditionInfo} className="blue-btn">
-        Get Condition Details
+        Condition Details
         </button>
     </div>
   );

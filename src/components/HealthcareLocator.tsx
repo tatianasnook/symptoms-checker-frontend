@@ -7,6 +7,7 @@ import { loadGoogleMapsScript } from '../api/googleMapService';
 const HealthcareLocator = () => {
   const [zipCode, setZipCode] = useState('');
   const [facilities, setFacilities] = useState<any[]>([]);
+  const [loading, setLoading] = useState(false);
   
   // @ts-ignore
   const [map, setMap] = useState<google.maps.Map | null>(null);
@@ -22,7 +23,7 @@ const HealthcareLocator = () => {
     alert('Please enter a ZIP code or a city and state, e.g., Seattle, WA.');
     return;
   }
-
+  setLoading(true);
   try {
     const response = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/nearby-healthcare`, {
       params: { zipCode },
@@ -54,6 +55,8 @@ const HealthcareLocator = () => {
   } catch (error) {
     console.error('Error fetching healthcare facilities:', error);
     alert('Failed to fetch healthcare facilities.');
+  } finally {
+    setLoading(false);
   }
   };
 
@@ -71,6 +74,8 @@ const HealthcareLocator = () => {
         Search
       </button>
 
+      {loading && <div className="loader"></div>}
+      
       <div id="map" style={{ display: facilities.length > 0 ? 'block' : 'none' }}></div>
 
       <ul>

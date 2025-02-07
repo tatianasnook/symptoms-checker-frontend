@@ -1,5 +1,5 @@
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: Inter, system-ui, Helvetica, Arial, sans-serif;
 }
 
 * {
@@ -42,4 +42,16 @@ input {
 .blue-btn:active {
   background-color: white;
   color:#0c82c1;
+}
+
+@media all and (max-width: 420px) {
+  input {
+    width: 200px;
+  }
+
+  .blue-btn {
+    width: 120px;
+    font-size: 10px;
+    padding: 12px 5px;
+  }
 }
