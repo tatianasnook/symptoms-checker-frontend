@@ -16,6 +16,23 @@ This is the frontend for SymptoScan, a medical symptom analysis application. It 
 * Find nearby healthcare facilities using Google Maps
 * View and manage search history
 
+## Screenshots
+
+### Homepage
+![SymptoScan Homepage](./assets/screenshots/homepage.png)
+
+### Symptoms Analysis
+![Symptoms Analysis](./assets/screenshots/symptoms-analysis.png)
+
+### Condition Details
+![Condition Details](./assets/screenshots/condition-details.png)
+
+### Nearby Healthcare Facilities
+![Nearby Healthcare Facilities](./assets/screenshots/nearby-facilities.png)
+
+### Search History
+![Search History](./assets/screenshots/search-history.png)
+
 ## Setup/Installation Requirements
 1. Clone the repository
    
